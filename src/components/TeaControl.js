@@ -38,12 +38,20 @@ class TeaControl extends React.Component {
     this.setState({selectedTea: selectedTea});
   }
 
+  handleDeletingTea = (id) => {
+    const newMainTeaList = this.state.mainTeaList.filter(tea => tea.id !== id);
+    this.setState({
+      mainTeaList: newMainTeaList,
+      selectedTea: null
+    });
+  }
+
   render(){
     let currentlyVisibleState = null;
     let buttonText = null; 
 
     if (this.state.selectedTea != null) {
-      currentlyVisibleState = <TeaDetail tea = {this.state.selectedTea} />
+      currentlyVisibleState = <TeaDetail tea = {this.state.selectedTea} onClickingDelete = {this.handleDeletingTea} />
       buttonText = "Return to Tea List";
     }
     else if (this.state.formVisibleOnPage) {
