@@ -5,13 +5,13 @@ function TeaList(){
   return (
       <React.Fragment>
         <Tea 
-            name="Green"
+            names="Green"
             origin="Vietnam"
             price={1} />
         <Tea 
-            name="Black"
+            names="Black"
             origin="England"
-            price={1} />
+            price={2} />
       </React.Fragment>
   );
 }
