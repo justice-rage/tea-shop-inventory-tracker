@@ -1,12 +1,10 @@
 import React from "react";
 
-function Tea(){
-    const teaName = "Green";
-    const teaName2 = "Black";
+function Tea(props){
   return (
     <React.Fragment>
-      <h3>{teaName}</h3>
-      <h3>{teaName2}</h3>
+      <h3>{props.name} - {props.origin}</h3>
+      <h3>{props.price}</h3>
       <p><em></em></p>
       <hr/>
     </React.Fragment>
