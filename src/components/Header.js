@@ -1,8 +1,12 @@
 import React from "react";
+import teaShopLogo from "./../img/teaShopLogo.png";
+
 
 function Header(){
   return (
-    <h1>Tea Shop Inventory tracker</h1>
+    <React.Fragment>
+    <img src={teaShopLogo} alt="An image of the logo" />
+    </React.Fragment>
   );
 }
 
