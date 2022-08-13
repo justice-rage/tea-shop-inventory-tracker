@@ -13,6 +13,7 @@ class TeaControl extends React.Component {
 
   render(){
     let currentlyVisibleState = null;
+    let addTeaButton = null;
     if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <NewTeaForm />
     } else {
@@ -21,6 +22,7 @@ class TeaControl extends React.Component {
     return (
       <React.Fragment>
         {currentlyVisibleState}
+        {addTeaButton}
       </React.Fragment>
     );
   }
