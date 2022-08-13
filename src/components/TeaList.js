@@ -3,21 +3,26 @@ import Tea from "./Tea";
 import PropTypes from "prop-types";
 
 function TeaList(props){
-  return (
-      <React.Fragment>
-        <hr />
-      {props.teaList.map((tea, index) =>
-        <Tea names={tea.names}
-          origin={tea.origin}
-          price={tea.price}
-          key={index} />
-      )}
-      </React.Fragment>
-  );
-}
 
-TeaList.propTypes = {
-    teaList: PropTypes.array
+    return (
+      <React.Fragment>
+        <hr/>
+        {props.teaList.map((tea) =>
+          <Tea
+            whenTeaClicked = { props.onTeaSelection }
+            names={tea.names}
+            origin={tea.location}
+            price={tea.price}
+            id={tea.id}
+            key={tea.id}/>
+        )}
+      </React.Fragment>
+    );
+  }
+  
+  TeaList.propTypes = {
+    teaList: PropTypes.array,
+    onTeaSelection: PropTypes.func
   };
 
 export default TeaList;
