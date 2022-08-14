@@ -25,7 +25,6 @@ Application designed to utilize full CRUD functionality. Users can view tea deta
 3. Navigate to root folder and open directory in your terminal
 4. Build environment by executing following command in terminal to install packages:
 ``` $ npm install ```
-Server:
 5. Start server executing following command in terminal:
 ``` $ npm start ```
 6. It should automatically open up the server if not open up your browser and go to:
