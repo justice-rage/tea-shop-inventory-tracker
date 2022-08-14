@@ -2,6 +2,7 @@ import React from 'react';
 import NewTeaForm from './NewTeaForm';
 import TeaDetail from './TeaDetail';
 import TeaList from './TeaList';
+import EditTeaForm from './EditTeaForm';
 
 class TeaControl extends React.Component {
 
@@ -10,7 +11,8 @@ class TeaControl extends React.Component {
     this.state = {
         formVisibleOnPage: false,
         mainTeaList: [],
-        selectedTea: null
+        selectedTea: null,
+        editing: false
     };
   }
 
@@ -18,7 +20,8 @@ class TeaControl extends React.Component {
     if (this.state.selectedTea != null) {
       this.setState({
         formVisibleOnPage: false,
-        selectedTea: null
+        selectedTea: null,
+        editing: false
       });
     } else {
       this.setState(prevState => ({
@@ -46,15 +49,37 @@ class TeaControl extends React.Component {
     });
   }
 
+  handleEditClick = () => {
+    console.log("handleEditClick reached!");
+    this.setState({editing: true});
+  }
+
+  handleEditingTeaInList = (teaToEdit) => {
+    const editedMainTeaList = this.state.mainTeaList
+      .filter(tea => tea.id !== this.state.selectedTea.id)
+      .concat(teaToEdit);
+    this.setState({
+        mainTeaList: editedMainTeaList,
+        editing: false,
+        selectedTea: null
+      });
+  }
+
   render(){
     let currentlyVisibleState = null;
     let buttonText = null; 
 
-    if (this.state.selectedTea != null) {
-      currentlyVisibleState = <TeaDetail tea = {this.state.selectedTea} onClickingDelete = {this.handleDeletingTea} />
-      buttonText = "Return to Tea List";
-    }
-    else if (this.state.formVisibleOnPage) {
+    if (this.state.editing ) {      
+        currentlyVisibleState = <EditTeaForm tea = {this.state.selectedTea} onEditTea = {this.handleEditingTeaInList} />
+        buttonText = "Return to Tea List";
+      } else if (this.state.selectedTea != null) {
+        currentlyVisibleState = 
+        <TeaDetail 
+          tea = {this.state.selectedTea} 
+          onClickingDelete = {this.handleDeletingTea} 
+          onClickingEdit = {this.handleEditClick} />
+        buttonText = "Return to Tea List";
+    } else if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <NewTeaForm onNewTeaCreation={this.handleAddingNewTeaToList}  />;
       buttonText = "Return to Tea List";
     } else {

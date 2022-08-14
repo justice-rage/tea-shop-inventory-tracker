@@ -9,6 +9,7 @@ function TeaDetail(props){
       <h1>Tea Detail</h1>
       <h3>{tea.origin} - {tea.names}</h3>
       <p><em>{tea.price}</em></p>
+      <button onClick={ props.onClickingEdit }>Update Tea</button>
       <button onClick={()=> onClickingDelete(tea.id) }>Remove Tea</button>
       <hr/>
     </React.Fragment>
@@ -17,7 +18,8 @@ function TeaDetail(props){
 
 TeaDetail.propTypes = {
   tea: PropTypes.object,
-  onClickingDelete: PropTypes.func
+  onClickingDelete: PropTypes.func,
+  onClickingEdit: PropTypes.func
 };
 
 export default TeaDetail;
