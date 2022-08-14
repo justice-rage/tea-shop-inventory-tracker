@@ -32,8 +32,7 @@ class TeaControl extends React.Component {
 
   handleAddingNewTeaToList = (newTea) => {
     const newMainTeaList = this.state.mainTeaList.concat(newTea);
-    this.setState({mainTeaList: newMainTeaList,
-                  formVisibleOnPage: false });
+    this.setState({mainTeaList: newMainTeaList, formVisibleOnPage: false });
   }
 
   handleChangingSelectedTea = (id) => {
@@ -65,6 +64,22 @@ class TeaControl extends React.Component {
       });
   }
 
+  handlePurchasingTea = (id) => {
+    const selectedTea = this.state.mainTeaList.filter(
+      (tea) => tea.id === id
+    )[0];
+    selectedTea.quantity -= 1;
+
+    const editedMainTeaList = this.state.mainTeaList
+      .filter((tea) => tea.id !== id)
+      .concat(selectedTea);
+
+    this.setState({
+      mainTeaList: editedMainTeaList,
+      editing: false,
+    });
+  };
+
   render(){
     let currentlyVisibleState = null;
     let buttonText = null; 
@@ -77,14 +92,15 @@ class TeaControl extends React.Component {
         <TeaDetail 
           tea = {this.state.selectedTea} 
           onClickingDelete = {this.handleDeletingTea} 
-          onClickingEdit = {this.handleEditClick} />
+          onClickingEdit = {this.handleEditClick} 
+          onClickingPurchase= {this.handlePurchasingTea}/>
         buttonText = "Return to Tea List";
     } else if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <NewTeaForm onNewTeaCreation={this.handleAddingNewTeaToList}  />;
       buttonText = "Return to Tea List";
     } else {
       currentlyVisibleState = <TeaList teaList={this.state.mainTeaList} onTeaSelection={this.handleChangingSelectedTea} />;
-      buttonText = "Add Tea";
+      buttonText = "Add Tea Crate to Inventory";
     }
 
     return (

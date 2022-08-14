@@ -13,6 +13,7 @@ function TeaList(props){
             names={tea.names}
             origin={tea.location}
             price={tea.price}
+            quantity={tea.quantity}
             id={tea.id}
             key={tea.id}/>
         )}

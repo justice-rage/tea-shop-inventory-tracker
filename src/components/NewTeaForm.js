@@ -11,6 +11,7 @@ function NewTeaForm(props){
           names: event.target.names.value, 
           origin: event.target.origin.value, 
           price: event.target.price.value, 
+          quantity: parseInt(130),
           id: v4()
         });
       }
@@ -19,7 +20,7 @@ function NewTeaForm(props){
         <React.Fragment>
           <ReusableForm 
             formSubmissionHandler={handleNewTeaFormSubmission}
-            buttonText="Add Tea to Inventory" />
+            buttonText="Add Tea Crate to Inventory" />
         </React.Fragment>
       );
     }
