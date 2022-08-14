@@ -7,8 +7,9 @@ function TeaDetail(props){
   return (
     <React.Fragment>
       <h1>Tea Detail</h1>
-      <h3>{tea.origin} - {tea.names}</h3>
-      <p><em>{tea.price}</em></p>
+      <h3>Name: {tea.names}</h3>
+      <h3>Origin: {tea.origin}</h3>
+      <p>Price: {tea.price}</p>
       <button onClick={ props.onClickingEdit }>Update Tea</button>
       <button onClick={()=> onClickingDelete(tea.id) }>Remove Tea</button>
       <hr/>
