@@ -12,7 +12,7 @@ An application built in React that tracks inventory for an imaginary local tea s
 - Markdown
 
 ### Description
-Application designed to utilize full CRUD functionality. Users can view tea details, add, update, and delete teas, and buy tea. When users purchase tea, quantity is reduced by one oz.
+Application designed to utilize full CRUD functionality. Users can view tea details, add, update, and delete, and buy tea. When users purchase tea, quantity is reduced by one oz.
 
 ![tea-shop-inventory-tracker-component-diagram](src/img/tea-shop-inventory-tracker-component-diagram.png)
 
