@@ -7,7 +7,11 @@ function EditTeaForm(props){
   
     function handleEditTeaFormSubmission(event) {
       event.preventDefault();
-      props.onEditTea({names: event.target.names.value, origin: event.target.origin.value, price: event.target.price.value, id: tea.id});
+      props.onEditTea({names: event.target.names.value, 
+      origin: event.target.origin.value, 
+      price: parseInt(event.target.price.value), 
+      id: tea.id,
+      });
     }
   
     return (

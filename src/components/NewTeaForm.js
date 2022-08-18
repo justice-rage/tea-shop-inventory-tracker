@@ -10,7 +10,7 @@ function NewTeaForm(props){
         props.onNewTeaCreation({
           names: event.target.names.value, 
           origin: event.target.origin.value, 
-          price: event.target.price.value, 
+          price: parseInt(event.target.price.value), 
           quantity: parseInt(130),
           id: v4()
         });
