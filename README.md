@@ -30,6 +30,11 @@ Application designed to utilize full CRUD functionality. Users can view tea deta
 6. It should automatically open up the server if not open up your browser and go to:
 ``` http://localhost:3000/ ```
 
+## Bugs
+
+1. Adding tea crates with a price between $x.01 - 99 rounds down price to the first lowest number. Example: $1.01 - $1.99 results in $1.00.
+2. Currently no way to re-stock tea after they are out of stock, other than creating a new tea crate with duplicate information.
+
 ## License
 
 MIT
